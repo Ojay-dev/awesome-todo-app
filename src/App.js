@@ -13,6 +13,7 @@ class App extends Component {
 
     this.onTodoInput = this.onTodoInput.bind(this);
     this.onTodoSubmit = this.onTodoSubmit.bind(this);
+    this.onDeleteItem = this.onDeleteItem.bind(this);
   }
 
   onTodoSubmit(e) {
@@ -32,6 +33,12 @@ class App extends Component {
 
   onTodoInput(e) {
     this.setState({ [e.target.name]: e.target.value });
+  }
+
+  onDeleteItem(todo) {
+    this.setState({
+      todoItems: this.state.todoItems.filter((item) => item !== todo),
+    });
   }
 
   render() {
@@ -55,15 +62,22 @@ class App extends Component {
             <button className="button">&#10005;</button>
           </li> */}
 
-          {this.state.todoItems.map((todo, idx) => {
-            console.log(todo);
-            return (
-              <li className="todo__items" key={idx}>
-                <span>{todo}</span>
-                <button className="button">&#10005;</button>
-              </li>
-            );
-          })}
+          {/* {this.state.todoItems.map((todo, idx) => (
+            <TodoList todo={todo} key={idx} state={this.setState} />
+          ))} */}
+          {this.state.todoItems.map((todo, idx) => (
+            <li className="todo__items" key={idx}>
+              <span>{todo}</span>
+              <button
+                className="button"
+                onClick={() => {
+                  this.onDeleteItem(todo);
+                }}
+              >
+                &#10005;
+              </button>
+            </li>
+          ))}
         </ul>
       </div>
     );
@@ -71,7 +85,15 @@ class App extends Component {
 }
 
 // class TodoList extends Component {
-//   co
+//   render() {
+//     let { todo, state } = this.props;
+//     return (
+//       <li className="todo__items">
+//         <span>{todo}</span>
+//         <button className="button" ons>&#10005;</button>
+//       </li>
+//     );
+//   }
 // }
 
 export default App;

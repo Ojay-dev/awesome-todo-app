@@ -1,5 +1,7 @@
 .App {
   /* text-align: center; */
+  width: 80%;
+  margin: 0 auto;
   margin-top: 5%;
 }
 
@@ -14,6 +16,7 @@
 }
 
 .App__form {
+  margin: 0 auto;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -30,8 +33,8 @@
   color: #FFFFFF;
   border-radius: 10px;
   border: none;
-  margin-right: 2%;
-  padding: 1.5rem 2%;
+  margin-right: 10px;
+  padding: 1.5rem 1.5rem;
 }
 
 .App__formInput:focus, .App__formSubmit:focus {
@@ -39,18 +42,17 @@
 }
 
 .App__formSubmit {
-  /* width: 10%; */
   font-family: Montserrat;
   font-style: normal;
   font-weight: bold;
   font-size: 1.8rem;
   line-height: 44px;
-  text-transform: uppercase;
+  /* text-transform: uppercase; */
   color: #FFFFFF;
   background: linear-gradient(90deg, #443A7A 0%, #4F4488 100%);
   border-radius: 10px;
   border: none;
-  padding: 1.5rem 1rem;
+  padding: 1.5rem 2rem;
 }
 
 .todo {
@@ -89,6 +91,7 @@
   background: rgba(255, 255, 255, 0.582);
   border-radius: 50%;
   font-size: .8rem;
+  cursor: pointer;
 }
 
 .button:hover {
@@ -101,4 +104,54 @@
 
 .todo__items:nth-child(even) {
   background: linear-gradient(90deg, #443A7A 0%, #544C79 100%);
+}
+
+@media screen and (max-width: 768px) {
+  .todo {
+    width: 75%;
+    margin: 3rem auto 0;
+  }
+
+  .todo__items {
+    font-size: 1.5rem;
+    line-height: 27px;
+  }
+}
+
+@media screen and (max-width: 425px) {
+  .App__text {
+    font-size: 44px;
+    line-height: 58px;
+  }
+
+  .App__form {
+    flex-direction: column;
+  }
+
+  .App__formInput {
+    width: 100%;
+    font-size: 1rem;
+    line-height: 35px;
+    padding: .75rem;
+    margin-right: 0;
+    margin-bottom: 1rem;
+  }
+  .App__formSubmit {
+    font-size: 1rem;
+    line-height: 35px;
+    text-transform: uppercase;
+    padding: .3rem 1rem;
+  }
+
+  .todo {
+    width: 80%;
+    margin: 3rem auto 0;
+  }
+
+  .todo__items {
+    /* width: 80%; */
+    font-size: 1rem;
+    line-height: 26px;
+    padding: .75rem;
+  }
 }
