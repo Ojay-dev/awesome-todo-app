@@ -1,26 +1,77 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React, { Component } from "react";
+import logo from "./logo.svg";
+import "./App.css";
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+class App extends Component {
+  state = {
+    todo: "",
+    todoItems: [],
+  };
+
+  constructor(props) {
+    super(props);
+
+    this.onTodoInput = this.onTodoInput.bind(this);
+    this.onTodoSubmit = this.onTodoSubmit.bind(this);
+  }
+
+  onTodoSubmit(e) {
+    e.preventDefault();
+
+    if (this.state.todo === "") {
+      return;
+    }
+
+    this.setState({
+      todoItems: [...this.state.todoItems, this.state.todo],
+      todo: "",
+    });
+
+    e.target.reset();
+  }
+
+  onTodoInput(e) {
+    this.setState({ [e.target.name]: e.target.value });
+  }
+
+  render() {
+    return (
+      <div className="App">
+        <h1 className="App__text">Todo App</h1>
+        <form className="App__form" onSubmit={this.onTodoSubmit}>
+          <input
+            type="text"
+            name="todo"
+            onChange={this.onTodoInput}
+            placeholder="Enter a todo item"
+            className="App__formInput"
+          />
+          <input type="submit" value="Add" className="App__formSubmit" />
+        </form>
+
+        <ul className="todo">
+          {/* <li className="todo__items">
+            <span>Lorem ipsum dolor sit amet</span>
+            <button className="button">&#10005;</button>
+          </li> */}
+
+          {this.state.todoItems.map((todo, idx) => {
+            console.log(todo);
+            return (
+              <li className="todo__items" key={idx}>
+                <span>{todo}</span>
+                <button className="button">&#10005;</button>
+              </li>
+            );
+          })}
+        </ul>
+      </div>
+    );
+  }
 }
+
+// class TodoList extends Component {
+//   co
+// }
 
 export default App;

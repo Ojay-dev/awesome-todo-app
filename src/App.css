@@ -1,38 +1,104 @@
 .App {
+  /* text-align: center; */
+  margin-top: 5%;
+}
+
+.App__text {
+  font-family: Montserrat;
+  font-style: normal;
+  font-weight: bold;
+  font-size: 64px;
+  line-height: 78px;
   text-align: center;
+  color: #FFFFFF;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+.App__form {
   display: flex;
-  flex-direction: column;
   align-items: center;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
 }
 
-.App-link {
-  color: #61dafb;
+.App__formInput {
+  width: 50%;
+  background: #413D57;
+  font-family: Montserrat;
+  font-style: normal;
+  font-weight: 600;
+  font-size: 1.8rem;
+  line-height: 44px;
+  color: #FFFFFF;
+  border-radius: 10px;
+  border: none;
+  margin-right: 2%;
+  padding: 1.5rem 2%;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.App__formInput:focus, .App__formSubmit:focus {
+  outline: none;
+}
+
+.App__formSubmit {
+  /* width: 10%; */
+  font-family: Montserrat;
+  font-style: normal;
+  font-weight: bold;
+  font-size: 1.8rem;
+  line-height: 44px;
+  text-transform: uppercase;
+  color: #FFFFFF;
+  background: linear-gradient(90deg, #443A7A 0%, #4F4488 100%);
+  border-radius: 10px;
+  border: none;
+  padding: 1.5rem 1rem;
+}
+
+.todo {
+  width: 56%;
+  padding: 0;
+  margin: 0 auto;
+  margin-top: 3.75rem;
+  display: flex;
+  flex-direction: column;
+}
+
+.todo__items {
+  position: relative;
+  width: fit-content;
+  list-style-type: none;
+  margin-bottom: 2rem;
+  font-family: Montserrat;
+  font-style: normal;
+  font-weight: 500;
+  font-size: 30px;
+  line-height: 37px;
+  color: #FFFFFF;
+  border-radius: 10px;
+  padding: 1rem 1.5rem;
+  margin-right: 2rem;
+}
+
+.button {
+  position: absolute;
+  width: 1.5rem;
+  height: 1.5rem;
+  top: -8px;
+  right: -7px;
+  border: none;
+  color: #000;
+  background: rgba(255, 255, 255, 0.582);
+  border-radius: 50%;
+  font-size: .8rem;
+}
+
+.button:hover {
+  background: #fff;
+}
+
+.todo__items:nth-child(odd) {
+  background: linear-gradient(90deg, #F52447 0%, #D9592B 100%);
+}
+
+.todo__items:nth-child(even) {
+  background: linear-gradient(90deg, #443A7A 0%, #544C79 100%);
 }
